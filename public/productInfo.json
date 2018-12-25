@@ -1,0 +1,76 @@
+[
+    {
+        "category_type": "GIRL_CLOTHE",
+        "category_name": "女装",
+        "product": [
+            {
+                "product_type": "T_SHIRT",
+                "product_type_name": "T恤"
+            },
+            {
+                "product_type": "SHIRT",
+                "product_type_name": "衬衫"
+            },
+            {
+                "product_type": "COAT",
+                "product_type_name": "外套"
+            },
+            {
+                "product_type": "CONNECT_DRESS",
+                "product_type_name": "连衣裙"
+            },
+            {
+                "product_type": "HALF_DRESS",
+                "product_type_name": "半身裙"
+            },
+            {
+                "product_type": "HOODIE",
+                "product_type_name": "卫衣"
+            },
+            {
+                "product_type": "VEST",
+                "product_type_name": "背心"
+            }
+        ]
+    },
+    {
+        "category_type": "BOY_CLOTHE",
+        "category_name": "男装",
+        "product": null
+    },
+    {
+        "category_type": "GIRL_SHOES",
+        "category_name": "女鞋",
+        "product": null
+    },
+    {
+        "category_type": "BOY_SHOES",
+        "category_name": "男鞋",
+        "product": null
+    },
+    {
+        "category_type": "CHILD_CLOTHE",
+        "category_name": "童装",
+        "product": null
+    },
+    {
+        "category_type": "CHILE_SHOES",
+        "category_name": "童鞋",
+        "product": null
+    },
+    {
+        "category_type": "GIRL_BAG",
+        "category_name": "女包",
+        "product": null
+    },
+    {
+        "category_type": "BOY_BAG",
+        "category_name": "男包",
+        "product": null
+    },
+    {
+        "category_type": "CHILD_BAG",
+        "category_name": "儿童背包",
+        "product": null
+    }
+]

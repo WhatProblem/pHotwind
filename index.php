@@ -13,6 +13,7 @@ header("Access-Control-Expose-Headers", "*");
 
 session_start();
 require './src/app/Home.php';
+require './src/admin/Admin.php';
 require './vendor/autoload.php';
 $settings = require './config/settings.php';
 
@@ -29,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 require './config/dependencies.php';
 
 // 路由
+require './src/routes/adminRoute.php';
 require './src/routes/homeRoute.php';
 
 $app->run();

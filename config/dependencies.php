@@ -33,7 +33,7 @@ $container['db'] = function ($c) {
  * NOTE: 后台admin配置
  */
 $container['Admin'] = function ($container) {
-  return new \Src\Admin\Test($container);
+  return new \Src\Admin\Admin($container);
 };
 
 
