@@ -57,6 +57,7 @@ class Admin
 
   public function getCategory($request, $response)
   {
+    $this->logger->addInfo('获取分类商品');
     $req = $request->getUri()->getQuery();
     if ($req) {
       $params = $request->getQueryParams()['category_type'];
@@ -73,6 +74,24 @@ class Admin
   public function addProduct($request, $response)
   {
     $this->logger->addInfo('新增产品');
-// $resp = self::respJson();
+    $bodyParams = $request->getParsedBody();
+    $table = 'girl_clothe';
+    $product_code = 'HTGC' . $bodyParams['product_type'] . '0001' . time();
+    $bodyParams['product_code'] = $product_code;
+    $bodyParam = [];
+    foreach ($bodyParams as $key => $value) {
+      $bodyParam[':' . $key] = $value;
+    }
+    $sql = 'INSERT INTO ' . $table . '(' . implode(',', array_keys($bodyParams)) . ') VALUES (' . implode(',', array_keys($bodyParam)) . ')';
+// $sqlArr = [':user_id' => $user_id, ':film_id' => $film_id, ':film_talk_content' => $film_talk_content];
+    $sth = $this->db->prepare($sql);
+    $sth->execute($bodyParam);
+    $code = $sth->errorCode();
+    if ($code == 00000) {
+      $resp = self::respJson();
+    } else {
+      $resp = self::respJson(null, $status = 500, $msg = 'failed!');
+    }
+    return $this->response->withJson($resp);
   }
 }
