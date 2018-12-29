@@ -1,2 +1,5 @@
 [2018-11-10 09:24:18] my_logger.INFO: Something interesting happened [] []
 [2018-11-10 09:29:01] my_logger.INFO: Something interesting happened [] []
+[2018-12-29 08:58:42] my_logger.INFO: 测试后台admin信息 [] []
+[2018-12-29 08:59:56] my_logger.INFO: 测试后台admin信息 [] []
+[2018-12-29 09:00:46] my_logger.INFO: 测试后台admin信息 [] []

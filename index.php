@@ -31,6 +31,6 @@ require './config/dependencies.php';
 
 // 路由
 require './src/routes/adminRoute.php';
-require './src/routes/homeRoute.php';
+require './src/routes/appRoute.php';
 
 $app->run();
