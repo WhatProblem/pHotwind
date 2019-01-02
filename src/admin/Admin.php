@@ -71,6 +71,9 @@ class Admin
     return $this->response->withJson($resp);
   }
 
+  /**
+   * 新增商品接口
+   */
   public function addProduct($request, $response)
   {
     $this->logger->addInfo('新增产品');
@@ -92,6 +95,17 @@ class Admin
     } else {
       $resp = self::respJson(null, $status = 500, $msg = 'failed!');
     }
+    return $this->response->withJson($resp);
+  }
+
+  public function updateProduct($request, $response)
+  {
+    $this->logger->addInfo('修改产品');
+    $bodyParams = $request->getParsedBody();
+    $table = 'girl_clothe';
+    $id = $bodyParams['id'];
+    // $resp = ['msg' => '成功测试', 'id' => $id];
+    $resp = $this->respJson($id, $status = 200, $msg = "successfully!");
     return $this->response->withJson($resp);
   }
 }

@@ -1,4 +1,4 @@
 <?php
-// $app->get('/hello', 'Home:hometest');
-// $app->put('/putTest', 'Home:hometest');
-// $app->delete('/deleteTest', 'Home:hometest');
+// $app->get('/hello', 'AppHome:hometest');
+// $app->put('/putTest', 'AppHome:hometest');
+// $app->delete('/deleteTest', 'AppHome:hometest');

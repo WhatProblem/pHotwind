@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Note: home模块
+ * Note: AppHome模块
  * req，res
  */
 
 namespace Src\App;
 
-class Home
+class AppHome
 {
   protected $container;
 

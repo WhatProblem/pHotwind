@@ -40,6 +40,6 @@ $container['Admin'] = function ($container) {
 /**
  * Note: 路由配置
  */
-$container['Home'] = function ($container) {
-  return new \Src\App\Home($container);
+$container['AppHome'] = function ($container) {
+  return new \Src\App\AppHome($container);
 };

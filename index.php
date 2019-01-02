@@ -12,7 +12,7 @@ header("Access-Control-Allow-Credentials", "true");
 header("Access-Control-Expose-Headers", "*");
 
 session_start();
-require './src/app/Home.php';
+require './src/app/AppHome.php';
 require './src/admin/Admin.php';
 require './vendor/autoload.php';
 $settings = require './config/settings.php';
