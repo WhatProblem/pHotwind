@@ -23,10 +23,25 @@ class AppHome
     }
   }
 
+  /**
+   * NOTE: get方法测试
+   */
   public function hometest($request, $response)
   {
-    $this->logger->addInfo("Something interesting happened");
-    $resp = ['msg' => 'successfully!'];
+    $this->logger->addInfo('Something interesting happened');
+    $req = $request->getQueryParams();
+    $resp = ['msg' => 'successfully!', 'req' => $req['class_id']];
+    return $this->response->withJson($resp);
+  }
+
+  /**
+   * NOTE: post方法测试
+   */
+  public function testPost($request, $response)
+  {
+    $this->logger->addInfo('Something interesting happened');
+    $req = $request->getParsedBody();
+    $resp = ['msg' => 'successfully!', 'req' => $req['class_id']];
     return $this->response->withJson($resp);
   }
 }

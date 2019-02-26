@@ -21,6 +21,11 @@ class Admin
     }
   }
 
+  /**
+   * Note:公共返回数据结构
+   * msg:返回信息值
+   * status: 返回状态码
+   */
   private function respJson($data = null, $status = 200, $msg = 'successfully!')
   {
     return [
@@ -30,9 +35,11 @@ class Admin
     ];
   }
 
+  /**
+   * Note: 转换请求数据变为数组 
+   */
   private function findCategoryFile($types = null)
   {
-// 转换为数组
     $jsonString = file_get_contents('./public/productInfo.json');
     $dataArr = json_decode($jsonString, true);
     if ($types) {
@@ -46,6 +53,9 @@ class Admin
     }
   }
 
+  /** 
+   * Note: 个人测试使用
+   */
   public function testAdmin($request, $response)
   {
     $json_string = file_get_contents('./public/productInfo.json');
@@ -55,6 +65,9 @@ class Admin
     return $this->response->withJson($resp);
   }
 
+  /** 
+   * Note: 获取商品分类
+   */
   public function getCategory($request, $response)
   {
     $this->logger->addInfo('获取分类商品');
@@ -98,14 +111,29 @@ class Admin
     return $this->response->withJson($resp);
   }
 
+  /**
+   * Note:修改商品信息
+   */
   public function updateProduct($request, $response)
   {
     $this->logger->addInfo('修改产品');
     $bodyParams = $request->getParsedBody();
     $table = 'girl_clothe';
     $id = $bodyParams['id'];
-    // $resp = ['msg' => '成功测试', 'id' => $id];
-    $resp = $this->respJson($id, $status = 200, $msg = "successfully!");
+    $resp = $this->respJson($id, $status = 200, $msg = 'successfully!');
+    return $this->response->withJson($resp);
+  }
+
+  /**
+   * Note:删除商品信息
+   */
+  public function delProduct($request, $response)
+  {
+    $this->logger->addInfo('删除商品');
+    $queryParams = $request->getQueryParams();
+    $table = 'girl_clothe';
+    $id = $queryParams['id'];
+    $resp = $this->respJson($id, $status = 200, $msg = 'delete successfully');
     return $this->response->withJson($resp);
   }
 }

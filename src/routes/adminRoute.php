@@ -7,3 +7,4 @@ $app->delete('/delete', 'Admin:testAdmin');
 $app->get('/getCategory', 'Admin:getCategory');
 $app->post('/addProduct', 'Admin:addProduct');
 $app->put('/updateProduct', 'Admin:updateProduct');
+$app->delete('/delProduct', 'Admin:delProduct');
