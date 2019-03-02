@@ -6,7 +6,7 @@ return [
     'addContentLengthHeader' => true,
     'db' => [
       'host' => 'localhost',
-      'dbname' => 'wslifestyle',
+      'dbname' => 'hotwind',
       'user' => 'root',
       'pass' => '',
       'options' => array(PDO::MYSQL_ATTR_INIT_COMMAND => 'set names utf8')
