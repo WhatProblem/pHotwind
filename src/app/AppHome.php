@@ -73,7 +73,16 @@ class AppHome
       $result = $sth->fetchAll();
     } else if (isset($table) && $table == 'saletype') {
       $sql = 'SELECT * FROM ' . $table . ' WHERE sale_type=' . $sort_type . ' ORDER BY sale_type_order ASC';
-      var_export($sql);
+      $sth = $this->db->prepare($sql);
+      $sth->execute();
+      $result = $sth->fetchAll();
+    } else if (isset($table) && $table == 'fashion') {
+      $sql = 'SELECT * FROM ' . $table . ' WHERE fashion_type=' . $sort_type;
+      $sth = $this->db->prepare($sql);
+      $sth->execute();
+      $result = $sth->fetchAll();
+    } else if (isset($table) && $table == 'goods') {
+      $sql = 'SELECT * FROM ' . $table . ' WHERE sale_type=' . $sort_type;
       $sth = $this->db->prepare($sql);
       $sth->execute();
       $result = $sth->fetchAll();
@@ -82,6 +91,15 @@ class AppHome
       $sth->execute();
       $result = $sth->fetchAll();
     }
+    return $result;
+  }
+
+  public function getGoods($table, $type_id, $category_type)
+  {
+    $sql = 'SELECT * FROM ' . $table . ' WHERE type_id=' . $type_id . ' AND category_type=' . $category_type;
+    $sth = $this->db->prepare($sql);
+    $sth->execute();
+    $result = $sth->fetchAll();
     return $result;
   }
 
@@ -94,13 +112,42 @@ class AppHome
     $boySort = $this->homeCommon('sorts', 1, 'boySort');
     $discount = $this->homeCommon('saletype', 1);
     $shopSale = $this->homeCommon('saletype', 2);
+    $welfare = $this->homeCommon('saletype', 3);
+    $fashion = $this->homeCommon('fashion', 0);
+    $fashionSeason = $this->homeCommon('fashion', 1);
+    $footer = $this->homeCommon('footer', null);
+    $hotSale = $this->homeCommon('goods', 4);
+
+    $girlsOne = $this->getGoods('goods', 0, 0);
+    $girlsTwo = $this->getGoods('goods', 0, 1);
+    $girlsThree = $this->getGoods('goods', 0, 2);
+    $girlsFour = $this->getGoods('goods', 0, 3);
+    $girls = array_merge($girlsOne, $girlsTwo, $girlsThree, $girlsFour);
+
+    $boysOne = $this->getGoods('goods', 1, 0);
+    $boysTwo = $this->getGoods('goods', 1, 1);
+    $boysThree = $this->getGoods('goods', 1, 4);
+    $boys = array_merge($boysOne, $boysTwo, $boysThree);
+
+    $shoesBagOne = $this->getGoods('goods', 1, 6);
+    $shoesBagTwo = $this->getGoods('goods', 0, 6);
+    $shoesBagThree = $this->getGoods('goods', 0, 7);
+    $shoesBag = array_merge($shoesBagOne, $shoesBagTwo, $shoesBagThree);
     $res = [
       'banner' => $banner,
       'theme' => $theme,
       'girlSort' => $girlSort,
       'boySort' => $boySort,
       'discount' => $discount,
-      'shopSale' => $shopSale
+      'shopSale' => $shopSale,
+      'welfare' => $welfare,
+      'fashion' => $fashion,
+      'fashionSeason' => $fashionSeason,
+      'footer' => $footer,
+      'hotSale' => $hotSale,
+      'girls' => $girls,
+      'boys' => $boys,
+      'shoesBag' => $shoesBag
     ];
     $resp = $this->resultStatus($res);
     return $this->response->withJson($resp);
