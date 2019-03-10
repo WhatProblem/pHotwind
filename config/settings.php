@@ -10,6 +10,13 @@ return [
       'user' => 'root',
       'pass' => '',
       'options' => array(PDO::MYSQL_ATTR_INIT_COMMAND => 'set names utf8')
-    ]
+    ],
+    // 'db' => [
+    //   'host' => 'localhost',
+    //   'dbname' => 'whatproblem',
+    //   'user' => 'whatproblem',
+    //   'pass' => 'whatproblem',
+    //   'options' => array(PDO::MYSQL_ATTR_INIT_COMMAND => 'set names utf8')
+    // ]
   ]
 ];
