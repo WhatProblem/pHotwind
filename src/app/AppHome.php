@@ -94,11 +94,16 @@ class AppHome
     return $result;
   }
 
-  public function getGoods($table, $type_id, $category_type)
+  /**
+   * Note: 查询goods表
+   * 顺带分页效果
+   */
+  public function getGoods($table, $type_id = '', $category_type = '', $pages = 0, $offsets = 10)
   {
-    $sql = 'SELECT * FROM ' . $table . ' WHERE type_id=' . $type_id . ' AND category_type=' . $category_type;
+    $sql = "SELECT * FROM $table WHERE type_id=:type_id AND category_type=:category_type LIMIT $pages, $offsets";
     $sth = $this->db->prepare($sql);
-    $sth->execute();
+    $queryArr = [':type_id' => $type_id, ':category_type' => $category_type];
+    $sth->execute($queryArr);
     $result = $sth->fetchAll();
     return $result;
   }
@@ -149,6 +154,22 @@ class AppHome
       'boys' => $boys,
       'shoesBag' => $shoesBag
     ];
+    $resp = $this->resultStatus($res);
+    return $this->response->withJson($resp);
+  }
+
+  /**
+   * Note:获取商品列表部分数据
+   * sort_navid: {0: 卫衣}等
+   * sort_type: {0:女装,1:男装}
+   */
+  public function getGoodList($request, $response)
+  {
+    $this->logger->addInfo('get goodList data');
+    $req = $request->getQueryParams();
+    // $pages = 0;
+    // $offsets = 1;
+    $res = $this->getGoods('goods', $req['sort_type'], $req['sort_navid'], $req['pages'], $req['offsets']);
     $resp = $this->resultStatus($res);
     return $this->response->withJson($resp);
   }
