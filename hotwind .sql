@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1:3306
--- 生成日期： 2019-03-03 13:54:53
+-- 生成日期： 2019-03-12 13:54:57
 -- 服务器版本： 5.7.23
 -- PHP 版本： 5.6.38
 
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `goods` (
   `tourl` varchar(50) NOT NULL COMMENT '导航地址',
   `sale_type` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '促销类型，0：没有任何活动，1：打折，2：店铺促销，3：优惠福利，4：商城热销款',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `goods`
@@ -136,7 +136,11 @@ INSERT INTO `goods` (`id`, `type_id`, `category_type`, `barcode`, `goods_name`, 
 (6, 0, 0, 'ht000006', '三福2019春装新品女小高领长袖T恤 莫代尔简约印花上衣女395128', '69.00', '白色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/hotSale_6.jpg', 'goodsList', 4),
 (7, 0, 6, 'ht000007', '三福2019女春学生韩版复古撞色线低帮帆布鞋休闲女鞋773045', '69.00', '黄色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/hotSale_7.jpg', 'goodsList', 4),
 (8, 0, 6, 'ht000008', '三福2019女春学院风撞色鞋底简约系带学生板鞋休闲女鞋773111', '79.00', '白色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/hotSale_8.jpg', 'goodsList', 4),
-(9, 0, 6, 'ht000009', '三福2019女春韩版潮流高帮帆布鞋学生运动休闲板鞋女鞋772894', '69.00', '黑色', NULL, 0, 1, '鞋包爆款满300-30', '', 0, 0, 'http://www.wslifestyle.com/public/img/goods/hotSale_9.jpg', 'goodsList', 4);
+(9, 0, 6, 'ht000009', '三福2019女春韩版潮流高帮帆布鞋学生运动休闲板鞋女鞋772894', '69.00', '黑色', NULL, 0, 1, '鞋包爆款满300-30', '', 0, 0, 'http://www.wslifestyle.com/public/img/goods/hotSale_9.jpg', 'goodsList', 4),
+(10, 0, 0, 'ht0000010', '三福2019春装新品女人物印花卫衣 宽松圆领长袖上衣女', '159.00', '蓝色', NULL, 0, 3, '新品专区2件88折', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/girl_0_3.jpg', 'goodsList', 1),
+(11, 0, 0, 'ht0000011', '三福2019春装新品女卫衣网纱裙两件套 休闲连衣裙套装女', '219.00', '白色', NULL, 0, 3, '新品专区2件88折', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/girl_0_4.jpg', 'goodsList', 1),
+(12, 0, 0, 'ht0000012', '三福2019春装新品女抽绳印花卫衣 休闲宽松长袖上衣女', '119.00', '粉红色', NULL, 0, 3, '新品专区2件88折', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/girl_0_5.jpg', 'goodsList', 1),
+(13, 0, 0, 'ht0000013', '三福2019夏装新品女宽松印花卫衣 休闲圆领长袖上衣女', '99.00', '灰色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/girl_0_6.jpg', 'goodsList', 2);
 
 -- --------------------------------------------------------
 
@@ -178,7 +182,7 @@ CREATE TABLE IF NOT EXISTS `sorts` (
   `sort_title` varchar(100) NOT NULL COMMENT '分类大标题',
   `picurl` varchar(255) DEFAULT NULL COMMENT '分类部分图片地址',
   `tourl` varchar(50) NOT NULL COMMENT '类标题导航的部分',
-  `sort_navid` int(10) UNSIGNED DEFAULT NULL COMMENT '分类导航的id',
+  `sort_navid` int(10) UNSIGNED DEFAULT NULL COMMENT '分类导航的id：\r\n商品具体类型，例如：男装：０：男卫衣，1：男夹克，2：男T恤，3：男衬衫，4：男休闲裤，5：男牛仔裤，6：男鞋品类，7：男士内裤\r\n女装：0：卫衣，1：外套，2：休闲裤，3：牛仔裤，4：内衣，5：美妆护肤，6：女鞋品类，7：潮流女包',
   `sort_name` varchar(50) DEFAULT NULL COMMENT '分类导航的名称，例如：卫衣'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -221,10 +225,10 @@ CREATE TABLE IF NOT EXISTS `theme` (
 --
 
 INSERT INTO `theme` (`picurl`, `tourl`) VALUES
-('http://www.wslifestyle.com/public/img/theme/theme_1.jpg', 'goodsList'),
-('http://www.wslifestyle.com/public/img/theme/theme_2.jpg', 'goodsList'),
-('http://www.wslifestyle.com/public/img/theme/theme_3.jpg', 'goodsList'),
-('http://www.wslifestyle.com/public/img/theme/theme_4.jpg', 'goodsList');
+('http://www.wslifestyle.com/public/img/theme/theme_1.png', 'goodsList'),
+('http://www.wslifestyle.com/public/img/theme/theme_2.png', 'goodsList'),
+('http://www.wslifestyle.com/public/img/theme/theme_3.png', 'goodsList'),
+('http://www.wslifestyle.com/public/img/theme/theme_4.png', 'goodsList');
 
 -- --------------------------------------------------------
 
