@@ -169,7 +169,7 @@ class AppHome
     $req = $request->getQueryParams();
     // $pages = 0;
     // $offsets = 1;
-    $res = $this->getGoods('goods', $req['sort_type'], $req['sort_navid'], $req['pages'], $req['offsets']);
+    $res = $this->getGoods('goods', $req['sort_type'], $req['sort_navid'], ($req['pages'] - 1), $req['offsets']);
     $resp = $this->resultStatus($res);
     return $this->response->withJson($resp);
   }
