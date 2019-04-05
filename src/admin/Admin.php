@@ -136,4 +136,18 @@ class Admin
     $resp = $this->respJson($id, $status = 200, $msg = 'delete successfully');
     return $this->response->withJson($resp);
   }
+
+  /**
+   * Note: 获取商品配置信息
+   * 查询静态文件
+   * @return {json对象}
+   */
+  public function goodsConfig($request, $response)
+  {
+    $json_string = file_get_contents('./public/productInfo.json');
+    $data = json_decode($json_string, true);
+    $this->logger->addInfo('获取静态文件数据');
+    $resp = $this->respJson($data);
+    return $this->response->withJson($resp);
+  }
 }

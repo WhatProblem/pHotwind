@@ -39,11 +39,11 @@ CREATE TABLE IF NOT EXISTS `banner` (
 --
 
 INSERT INTO `banner` (`picurl`, `tourl`) VALUES
-('http://www.wslifestyle.com/public/img/banner/banner_1.jpg', 'goodsList'),
-('http://www.wslifestyle.com/public/img/banner/banner_2.jpg', 'goodsList'),
-('http://www.wslifestyle.com/public/img/banner/banner_3.jpg', 'goodsList'),
-('http://www.wslifestyle.com/public/img/banner/banner_4.jpg', 'goodsList'),
-('http://www.wslifestyle.com/public/img/banner/banner_5.jpg', 'goodsList');
+('http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/banner/banner_1.jpg', 'goodsList'),
+('http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/banner/banner_2.jpg', 'goodsList'),
+('http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/banner/banner_3.jpg', 'goodsList'),
+('http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/banner/banner_4.jpg', 'goodsList'),
+('http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/banner/banner_5.jpg', 'goodsList');
 
 -- --------------------------------------------------------
 
@@ -65,12 +65,12 @@ CREATE TABLE IF NOT EXISTS `fashion` (
 --
 
 INSERT INTO `fashion` (`fashion_title`, `fashion_type`, `picurl`, `tourl`, `pic_position`) VALUES
-('流行 时尚', 0, 'http://www.wslifestyle.com/public/img/fashion/fashion_1.jpg', 'goodsList', 'left_top'),
-('流行 时尚', 0, 'http://www.wslifestyle.com/public/img/fashion/fashion_3.jpg', 'goodsList', 'right_top'),
-('流行 时尚', 0, 'http://www.wslifestyle.com/public/img/fashion/fashion_2.jpg', 'goodsList', 'left_bottom'),
-('流行 时尚', 0, 'http://www.wslifestyle.com/public/img/fashion/fashion_4.jpg', 'goodsList', 'right_bottom'),
-('', 1, 'http://www.wslifestyle.com/public/img/fashion/combine_1.jpg', 'goodsList', 'left'),
-('', 1, 'http://www.wslifestyle.com/public/img/fashion/combine_2.jpg', 'goodsList', 'right');
+('流行 时尚', 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/fashion/fashion_1.jpg', 'goodsList', 'left_top'),
+('流行 时尚', 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/fashion/fashion_3.jpg', 'goodsList', 'right_top'),
+('流行 时尚', 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/fashion/fashion_2.jpg', 'goodsList', 'left_bottom'),
+('流行 时尚', 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/fashion/fashion_4.jpg', 'goodsList', 'right_bottom'),
+('', 1, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/fashion/combine_1.jpg', 'goodsList', 'left'),
+('', 1, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/fashion/combine_2.jpg', 'goodsList', 'right');
 
 -- --------------------------------------------------------
 
@@ -91,9 +91,9 @@ CREATE TABLE IF NOT EXISTS `footer` (
 --
 
 INSERT INTO `footer` (`footer_navid`, `picurl`, `tourl`) VALUES
-(1, 'http://www.wslifestyle.com/public/img/footer/footer_1.jpg', 'goodsList'),
-(2, 'http://www.wslifestyle.com/public/img/footer/footer_2.jpg', 'goodsList'),
-(3, 'http://www.wslifestyle.com/public/img/footer/footer_3.jpg', 'goodsList');
+(1, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/footer/footer_1.jpg', 'goodsList'),
+(2, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/footer/footer_2.jpg', 'goodsList'),
+(3, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/footer/footer_3.jpg', 'goodsList');
 
 -- --------------------------------------------------------
 
@@ -128,19 +128,19 @@ CREATE TABLE IF NOT EXISTS `goods` (
 --
 
 INSERT INTO `goods` (`id`, `type_id`, `category_type`, `barcode`, `goods_name`, `goods_price`, `goods_color`, `goods_discount`, `onsale_remind`, `onsale_info`, `cut_now`, `mail_free`, `isfav`, `isnew`, `picurl`, `tourl`, `sale_type`) VALUES
-(1, 1, 0, 'ht000001', '三福2019春装新品男撞色卫衣 胸前字母刺绣上衣男395192', '139.00', '红色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/hotSale_1.jpg', 'goodsList', 4),
-(2, 1, 3, 'ht000002', '三福2019春装新品男学院风牛津纺衬衫 文艺方领衬衣男394321', '119.00', '白色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/hotSale_2.jpg', 'goodsList', 4),
-(3, 1, 1, 'ht000003', '三福2019春装新品男学院风牛津纺衬衫 文艺方领衬衣男394321', '259.00', '黑色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/hotSale_3.jpg', 'goodsList', 4),
-(4, 0, 0, 'ht000004', '三福2019春装新品女印花连帽卫衣 休闲宽松长袖上衣女395541', '139.00', '黄色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/hotSale_4.jpg', 'goodsList', 4),
-(5, 0, 1, 'ht000005', '三福2019春装新品女后背刺绣牛仔外套 飘带挂饰夹克女773414', '339.00', '蓝色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/hotSale_5.jpg', 'goodsList', 4),
-(6, 0, 0, 'ht000006', '三福2019春装新品女小高领长袖T恤 莫代尔简约印花上衣女395128', '69.00', '白色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/hotSale_6.jpg', 'goodsList', 4),
-(7, 0, 6, 'ht000007', '三福2019女春学生韩版复古撞色线低帮帆布鞋休闲女鞋773045', '69.00', '黄色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/hotSale_7.jpg', 'goodsList', 4),
-(8, 0, 6, 'ht000008', '三福2019女春学院风撞色鞋底简约系带学生板鞋休闲女鞋773111', '79.00', '白色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/hotSale_8.jpg', 'goodsList', 4),
-(9, 0, 6, 'ht000009', '三福2019女春韩版潮流高帮帆布鞋学生运动休闲板鞋女鞋772894', '69.00', '黑色', NULL, 0, 1, '鞋包爆款满300-30', '', 0, 0, 'http://www.wslifestyle.com/public/img/goods/hotSale_9.jpg', 'goodsList', 4),
-(10, 0, 0, 'ht0000010', '三福2019春装新品女人物印花卫衣 宽松圆领长袖上衣女', '159.00', '蓝色', NULL, 0, 3, '新品专区2件88折', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/girl_0_3.jpg', 'goodsList', 1),
-(11, 0, 0, 'ht0000011', '三福2019春装新品女卫衣网纱裙两件套 休闲连衣裙套装女', '219.00', '白色', NULL, 0, 3, '新品专区2件88折', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/girl_0_4.jpg', 'goodsList', 1),
-(12, 0, 0, 'ht0000012', '三福2019春装新品女抽绳印花卫衣 休闲宽松长袖上衣女', '119.00', '粉红色', NULL, 0, 3, '新品专区2件88折', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/girl_0_5.jpg', 'goodsList', 1),
-(13, 0, 0, 'ht0000013', '三福2019夏装新品女宽松印花卫衣 休闲圆领长袖上衣女', '99.00', '灰色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://www.wslifestyle.com/public/img/goods/girl_0_6.jpg', 'goodsList', 2);
+(1, 1, 0, 'ht000001', '三福2019春装新品男撞色卫衣 胸前字母刺绣上衣男395192', '139.00', '红色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/goods/hotSale_1.jpg', 'goodsList', 4),
+(2, 1, 3, 'ht000002', '三福2019春装新品男学院风牛津纺衬衫 文艺方领衬衣男394321', '119.00', '白色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/goods/hotSale_2.jpg', 'goodsList', 4),
+(3, 1, 1, 'ht000003', '三福2019春装新品男学院风牛津纺衬衫 文艺方领衬衣男394321', '259.00', '黑色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/goods/hotSale_3.jpg', 'goodsList', 4),
+(4, 0, 0, 'ht000004', '三福2019春装新品女印花连帽卫衣 休闲宽松长袖上衣女395541', '139.00', '黄色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/goods/hotSale_4.jpg', 'goodsList', 4),
+(5, 0, 1, 'ht000005', '三福2019春装新品女后背刺绣牛仔外套 飘带挂饰夹克女773414', '339.00', '蓝色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/goods/hotSale_5.jpg', 'goodsList', 4),
+(6, 0, 0, 'ht000006', '三福2019春装新品女小高领长袖T恤 莫代尔简约印花上衣女395128', '69.00', '白色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/goods/hotSale_6.jpg', 'goodsList', 4),
+(7, 0, 6, 'ht000007', '三福2019女春学生韩版复古撞色线低帮帆布鞋休闲女鞋773045', '69.00', '黄色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/goods/hotSale_7.jpg', 'goodsList', 4),
+(8, 0, 6, 'ht000008', '三福2019女春学院风撞色鞋底简约系带学生板鞋休闲女鞋773111', '79.00', '白色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/goods/hotSale_8.jpg', 'goodsList', 4),
+(9, 0, 6, 'ht000009', '三福2019女春韩版潮流高帮帆布鞋学生运动休闲板鞋女鞋772894', '69.00', '黑色', NULL, 0, 1, '鞋包爆款满300-30', '', 0, 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/goods/hotSale_9.jpg', 'goodsList', 4),
+(10, 0, 0, 'ht0000010', '三福2019春装新品女人物印花卫衣 宽松圆领长袖上衣女', '159.00', '蓝色', NULL, 0, 3, '新品专区2件88折', '全场满99包邮', 0, 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/goods/girl_0_3.jpg', 'goodsList', 1),
+(11, 0, 0, 'ht0000011', '三福2019春装新品女卫衣网纱裙两件套 休闲连衣裙套装女', '219.00', '白色', NULL, 0, 3, '新品专区2件88折', '全场满99包邮', 0, 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/goods/girl_0_4.jpg', 'goodsList', 1),
+(12, 0, 0, 'ht0000012', '三福2019春装新品女抽绳印花卫衣 休闲宽松长袖上衣女', '119.00', '粉红色', NULL, 0, 3, '新品专区2件88折', '全场满99包邮', 0, 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/goods/girl_0_5.jpg', 'goodsList', 1),
+(13, 0, 0, 'ht0000013', '三福2019夏装新品女宽松印花卫衣 休闲圆领长袖上衣女', '99.00', '灰色', NULL, 0, 2, '', '全场满99包邮', 0, 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/goods/girl_0_6.jpg', 'goodsList', 2);
 
 -- --------------------------------------------------------
 
@@ -162,13 +162,13 @@ CREATE TABLE IF NOT EXISTS `saletype` (
 --
 
 INSERT INTO `saletype` (`sale_type`, `sale_name`, `sale_type_order`, `picurl`, `tourl`) VALUES
-(2, '店铺促销', 0, 'http://www.wslifestyle.com/public/img/saletype/left.jpg', 'goodsList'),
-(2, '店铺促销', 1, 'http://www.wslifestyle.com/public/img/saletype/r_bot.jpg', 'goodsList'),
-(2, '店铺促销', 2, 'http://www.wslifestyle.com/public/img/saletype/r_top.jpg', 'goodsList'),
-(1, '两件8.8折', 0, 'http://www.wslifestyle.com/public/img/saletype/region_2.jpg', 'goodsList'),
-(1, '两件8.8折', 2, 'http://www.wslifestyle.com/public/img/saletype/region_3.jpg', 'goodsList'),
-(1, '两件8.8折', 1, 'http://www.wslifestyle.com/public/img/saletype/region_1.jpg', 'goodsList'),
-(3, '优惠福利', 0, 'http://www.wslifestyle.com/public/img/saletype/welfare.jpg', 'goodsList');
+(2, '店铺促销', 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/saletype/left.jpg', 'goodsList'),
+(2, '店铺促销', 1, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/saletype/r_bot.jpg', 'goodsList'),
+(2, '店铺促销', 2, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/saletype/r_top.jpg', 'goodsList'),
+(1, '两件8.8折', 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/saletype/region_2.jpg', 'goodsList'),
+(1, '两件8.8折', 2, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/saletype/region_3.jpg', 'goodsList'),
+(1, '两件8.8折', 1, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/saletype/region_1.jpg', 'goodsList'),
+(3, '优惠福利', 0, 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/saletype/welfare.jpg', 'goodsList');
 
 -- --------------------------------------------------------
 
@@ -191,22 +191,22 @@ CREATE TABLE IF NOT EXISTS `sorts` (
 --
 
 INSERT INTO `sorts` (`sort_type`, `sort_title`, `picurl`, `tourl`, `sort_navid`, `sort_name`) VALUES
-(0, 'Girls-热门分类', 'http://www.wslifestyle.com/public/img/sortTitle/girl_sort_1.jpg', 'goodsList', 0, '卫衣'),
-(0, 'Girls-热门分类', 'http://www.wslifestyle.com/public/img/sortTitle/girl_sort_2.jpg', 'goodsList', 1, '外套'),
-(0, 'Girls-热门分类', 'http://www.wslifestyle.com/public/img/sortTitle/girl_sort_3.jpg', 'goodsList', 2, '休闲裤'),
-(0, 'Girls-热门分类', 'http://www.wslifestyle.com/public/img/sortTitle/girl_sort_4.jpg', 'goodsLIst', 3, '牛仔裤'),
-(0, 'Girls热门分类', 'http://www.wslifestyle.com/public/img/sortTitle/girl_sort_5.jpg', 'goodsList', 4, '文胸'),
-(0, 'Girls-热门分类', 'http://www.wslifestyle.com/public/img/sortTitle/girl_sort_6.jpg', 'goodsList', 5, '美妆护肤'),
-(0, 'Girls-热门分类', 'http://www.wslifestyle.com/public/img/sortTitle/girl_sort_7.jpg', 'goodsList', 6, '女鞋品类'),
-(0, 'Girls-热门分类', 'http://www.wslifestyle.com/public/img/sortTitle/girl_sort_8.jpg', 'goodsList', 7, '潮流女包'),
-(1, 'Boys-热门分类', 'http://www.wslifestyle.com/public/img/sortTitle/boy_sort_1.jpg', 'goodsList', 0, '卫衣'),
-(1, 'Boys-热门分类', 'http://www.wslifestyle.com/public/img/sortTitle/boy_sort_2.jpg', 'goodsList', 1, '夹克'),
-(1, 'Boys-热门分类', 'http://www.wslifestyle.com/public/img/sortTitle/boy_sort_3.jpg', 'goodsList', 2, 'T恤'),
-(1, 'Boys-热门分类', 'http://www.wslifestyle.com/public/img/sortTitle/boy_sort_4.jpg', 'goodsLIst', 3, '衬衫'),
-(1, 'Boys-热门分类', 'http://www.wslifestyle.com/public/img/sortTitle/boy_sort_5.jpg', 'goodsList', 4, '休闲裤'),
-(1, 'Boys-热门分类', 'http://www.wslifestyle.com/public/img/sortTitle/boy_sort_6.jpg', 'goodsList', 5, '牛仔裤'),
-(1, 'Boys-热门分类', 'http://www.wslifestyle.com/public/img/sortTitle/boy_sort_7.jpg', 'goodsList', 6, '男鞋品类'),
-(1, 'Boys-热门分类', 'http://www.wslifestyle.com/public/img/sortTitle/boy_sort_8.jpg', 'goodsList', 7, '男士内裤');
+(0, 'Girls-热门分类', 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/sortTitle/girl_sort_1.jpg', 'goodsList', 0, '卫衣'),
+(0, 'Girls-热门分类', 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/sortTitle/girl_sort_2.jpg', 'goodsList', 1, '外套'),
+(0, 'Girls-热门分类', 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/sortTitle/girl_sort_3.jpg', 'goodsList', 2, '休闲裤'),
+(0, 'Girls-热门分类', 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/sortTitle/girl_sort_4.jpg', 'goodsLIst', 3, '牛仔裤'),
+(0, 'Girls热门分类', 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/sortTitle/girl_sort_5.jpg', 'goodsList', 4, '文胸'),
+(0, 'Girls-热门分类', 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/sortTitle/girl_sort_6.jpg', 'goodsList', 5, '美妆护肤'),
+(0, 'Girls-热门分类', 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/sortTitle/girl_sort_7.jpg', 'goodsList', 6, '女鞋品类'),
+(0, 'Girls-热门分类', 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/sortTitle/girl_sort_8.jpg', 'goodsList', 7, '潮流女包'),
+(1, 'Boys-热门分类', 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/sortTitle/boy_sort_1.jpg', 'goodsList', 0, '卫衣'),
+(1, 'Boys-热门分类', 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/sortTitle/boy_sort_2.jpg', 'goodsList', 1, '夹克'),
+(1, 'Boys-热门分类', 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/sortTitle/boy_sort_3.jpg', 'goodsList', 2, 'T恤'),
+(1, 'Boys-热门分类', 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/sortTitle/boy_sort_4.jpg', 'goodsLIst', 3, '衬衫'),
+(1, 'Boys-热门分类', 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/sortTitle/boy_sort_5.jpg', 'goodsList', 4, '休闲裤'),
+(1, 'Boys-热门分类', 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/sortTitle/boy_sort_6.jpg', 'goodsList', 5, '牛仔裤'),
+(1, 'Boys-热门分类', 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/sortTitle/boy_sort_7.jpg', 'goodsList', 6, '男鞋品类'),
+(1, 'Boys-热门分类', 'http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/sortTitle/boy_sort_8.jpg', 'goodsList', 7, '男士内裤');
 
 -- --------------------------------------------------------
 
@@ -225,10 +225,10 @@ CREATE TABLE IF NOT EXISTS `theme` (
 --
 
 INSERT INTO `theme` (`picurl`, `tourl`) VALUES
-('http://www.wslifestyle.com/public/img/theme/theme_1.png', 'goodsList'),
-('http://www.wslifestyle.com/public/img/theme/theme_2.png', 'goodsList'),
-('http://www.wslifestyle.com/public/img/theme/theme_3.png', 'goodsList'),
-('http://www.wslifestyle.com/public/img/theme/theme_4.png', 'goodsList');
+('http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/theme/theme_1.png', 'goodsList'),
+('http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/theme/theme_2.png', 'goodsList'),
+('http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/theme/theme_3.png', 'goodsList'),
+('http://whatproblem.xg1haodfed.zhihuanche.cn/public/img/theme/theme_4.png', 'goodsList');
 
 -- --------------------------------------------------------
 

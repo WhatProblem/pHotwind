@@ -1,216 +1,138 @@
-[
-    {
-        "category_type": "GIRL_CLOTHE",
-        "category_name": "女装",
-        "product": [
-            {
-                "product_type": "T_SHIRT",
-                "product_type_name": "T恤"
-            },
-            {
-                "product_type": "SHIRT",
-                "product_type_name": "衬衫"
-            },
-            {
-                "product_type": "COAT",
-                "product_type_name": "外套"
-            },
-            {
-                "product_type": "CONNECT_DRESS",
-                "product_type_name": "连衣裙"
-            },
-            {
-                "product_type": "HALF_DRESS",
-                "product_type_name": "半身裙"
-            },
-            {
-                "product_type": "HOODIE",
-                "product_type_name": "卫衣"
-            },
-            {
-                "product_type": "VEST",
-                "product_type_name": "背心"
-            }
-        ]
-    },
-    {
-        "category_type": "BOY_CLOTHE",
-        "category_name": "男装",
-        "product": [
-            {
-                "product_type": "T_SHIRT",
-                "product_type_name": "T恤"
-            },
-            {
-                "product_type": "VEST",
-                "product_type_name": "背心"
-            },
-            {
-                "product_type": "SHIRT/POLO",
-                "product_type_name": "衬衫/POLO衫"
-            },
-            {
-                "product_type": "COAT",
-                "product_type_name": "外套"
-            },
-            {
-                "product_type": "HOODIE",
-                "product_type_name": "卫衣"
-            },
-            {
-                "product_type": "TRUNKS",
-                "product_type_name": "运动短裤"
-            },
-            {
-                "product_type": "CASUAL_PANTS",
-                "product_type_name": "休闲裤"
-            },
-            {
-                "product_type": "LEGS_CLOTHE",
-                "product_type_name": "裤装"
-            },
-            {
-                "product_type": "JACKET",
-                "product_type_name": "夹克"
-            },
-            {
-                "product_type": "SWEATER",
-                "product_type_name": "毛衣/毛衫"
-            },
-            {
-                "product_type": "DOWN_COAT",
-                "product_type_name": "羽绒服"
-            },
-            {
-                "product_type": "JEAN_PANT",
-                "product_type_name": "牛仔裤"
-            },
-            {
-                "product_type": "WOOLEN_COAT",
-                "product_type_name": "毛呢大衣"
-            },
-            {
-                "product_type": "WEASTERN_STYLE_CLOTHE",
-                "product_type_name": "西服"
-            }
-        ]
-    },
-    {
-        "category_type": "GIRL_SHOES",
-        "category_name": "女鞋",
-        "product": [
-            {
-                "product_type": "ANKLE_BOOT",
-                "product_type_name": "短靴"
-            },
-            {
-                "product_type": "THIGH_BOOT",
-                "product_type_name": "长靴"
-            },
-            {
-                "product_type": "CHELSEA_BOOT",
-                "product_type_name": "切尔西靴"
-            }
-        ]
-    },
-    {
-        "category_type": "BOY_SHOES",
-        "category_name": "男鞋",
-        "product": [
-            {
-                "product_type": "PINCH",
-                "product_type_name": "夹脚拖"
-            },
-            {
-                "product_type": "CORK_TOWING",
-                "product_type_name": "软木拖"
-            },
-            {
-                "product_type": "SANDAL",
-                "product_type_name": "凉鞋"
-            }
-        ]
-    },
-    {
-        "category_type": "CHILD_CLOTHE",
-        "category_name": "童装",
-        "product": [
-            {
-                "product_type": "PANTS",
-                "product_type_name": "裤子"
-            },
-            {
-                "product_type": "CABLEKINT",
-                "product_type_name": "针织衫"
-            },
-            {
-                "product_type": "JACKET",
-                "product_type_name": "夹克"
-            }
-        ]
-    },
-    {
-        "category_type": "CHILE_SHOES",
-        "category_name": "童鞋",
-        "product": [
-            {
-                "product_type": "SLIPPERS",
-                "product_type_name": "拖鞋"
-            },
-            {
-                "product_type": "SANDAL",
-                "product_type_name": "凉鞋"
-            },
-            {
-                "product_type": "PLIMSOLLS",
-                "product_type_name": "帆布鞋"
-            }
-        ]
-    },
-    {
-        "category_type": "GIRL_BAG",
-        "category_name": "女包",
-        "product": [
-            {
-                "product_type": "DIESEL",
-                "product_type_name": "斜挎包"
-            },
-            {
-                "product_type": "CANVAS_BAG",
-                "product_type_name": "帆布包"
-            },
-            {
-                "product_type": "WALLET",
-                "product_type_name": "钱包"
-            }
-        ]
-    },
-    {
-        "category_type": "BOY_BAG",
-        "category_name": "男包",
-        "product": [
-            {
-                "product_type": "WALLET",
-                "product_type_name": "钱包"
-            },
-            {
-                "product_type": "CARD_HOLDER",
-                "product_type_name": "卡包"
-            },
-            {
-                "product_type": "KEY_CASE",
-                "product_type_name": "钥匙包"
-            }
-        ]
-    },
-    {
-        "category_type": "CHILD_BAG",
-        "category_name": "儿童背包",
-        "product": [
-            {
-                "product_type": "CHILD_BAG",
-                "product_type_name": "儿童背包"
-            }
-        ]
-    }
-]
+{
+    "male_type": [
+        {
+            "type_id": 0,
+            "name": "女"
+        },
+        {
+            "type_id": 1,
+            "name": "男"
+        }
+    ],
+    "category": [
+        {
+            "type_id": 0,
+            "list": [
+                {
+                    "category_type": 0,
+                    "name": "卫衣"
+                },
+                {
+                    "category_type": 1,
+                    "name": "外套"
+                },
+                {
+                    "category_type": 2,
+                    "name": "休闲裤"
+                },
+                {
+                    "category_type": 3,
+                    "name": "牛仔裤"
+                },
+                {
+                    "category_type": 4,
+                    "name": "内衣"
+                },
+                {
+                    "category_type": 5,
+                    "name": "美妆护肤"
+                },
+                {
+                    "category_type": 6,
+                    "name": "女鞋品类"
+                },
+                {
+                    "category_type": 7,
+                    "name": "潮流女包"
+                }
+            ]
+        },
+        {
+            "type_id": 1,
+            "list": [
+                {
+                    "category_type": 0,
+                    "name": "卫衣"
+                },
+                {
+                    "category_type": 1,
+                    "name": "夹克"
+                },
+                {
+                    "category_type": 2,
+                    "name": "T恤"
+                },
+                {
+                    "category_type": 3,
+                    "name": "衬衫"
+                },
+                {
+                    "category_type": 4,
+                    "name": "休闲裤"
+                },
+                {
+                    "category_type": 5,
+                    "name": "牛仔裤"
+                },
+                {
+                    "category_type": 6,
+                    "name": "男鞋品类"
+                },
+                {
+                    "category_type": 7,
+                    "name": "男士内衣"
+                }
+            ]
+        }
+    ],
+    "sale_info": [
+        {
+            "onsale_info": 0,
+            "name": "没有促销信息"
+        },
+        {
+            "onsale_info": 1,
+            "name": "立减"
+        },
+        {
+            "onsale_info": 2,
+            "name": "包邮"
+        },
+        {
+            "onsale_info": 3,
+            "name": "立减和包邮"
+        }
+    ],
+    "new_product": [
+        {
+            "isnew": 0,
+            "name": "否"
+        },
+        {
+            "isnew": 1,
+            "name": "新品"
+        }
+    ],
+    "sale_ornot": [
+        {
+            "sale_type": 0,
+            "name": "无活动"
+        },
+        {
+            "sale_type": 1,
+            "name": "打折"
+        },
+        {
+            "sale_type": 2,
+            "name": "店铺促销"
+        },
+        {
+            "sale_type": 3,
+            "name": "优惠福利"
+        },
+        {
+            "sale_type": 4,
+            "name": "商城热销款"
+        }
+    ]
+}
