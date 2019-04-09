@@ -156,7 +156,7 @@ class Admin
    */
   public function upload($request, $response)
   {
-    var_export($_FILES);
+    // var_export($_FILES);
     if ($_FILES['file']['error'] > 0) {
       switch ($_FILES['file']['error']) {
          //错误码不为0，即文件上传过程中出现了错误
@@ -219,7 +219,7 @@ class Admin
       if (is_uploaded_file($_FILES['file']['tmp_name'])) {
 
         if (move_uploaded_file($_FILES['file']['tmp_name'], $path . $name)) {
-          echo "上传成功";
+          // echo "上传成功";
         } else {
           echo '上传失败';
         }
@@ -229,5 +229,20 @@ class Admin
       }
 
     }
+    $bodyParams = $request->getParsedBody()['param'];
+    // $queryParams = $request->getQueryParams();
+    $resp = $this->respJson(json_decode($bodyParams, true));
+    return $this->response->withJson($resp);
+  }
+
+  /**
+   * Note: 测试post
+   */
+  public function testPost($request, $response)
+  {
+    $bodyParams = $request->getParsedBody();
+    $queryParams = $request->getQueryParams();
+    $resp = $this->respJson($bodyParams);
+    return $this->response->withJson($resp);
   }
 }

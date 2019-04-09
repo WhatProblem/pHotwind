@@ -4,6 +4,7 @@ $app->post('/post', 'Admin:testAdmin');
 $app->put('/put', 'Admin:testAdmin');
 $app->delete('/delete', 'Admin:testAdmin');
 $app->post('/upload', 'Admin:upload');
+$app->post('/testPost', 'Admin:testPost');
 
 $app->get('/getCategory', 'Admin:getCategory');
 $app->post('/addProduct', 'Admin:addProduct');
