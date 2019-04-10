@@ -8,6 +8,7 @@ namespace Src\Admin;
 class Admin
 {
   protected $container;
+  protected $addr = 'http://www.wslifestyle.com';
 
   public function __construct($container)
   {
@@ -156,10 +157,10 @@ class Admin
    */
   public function upload($request, $response)
   {
-    // var_export($_FILES);
+// var_export($_FILES);
     if ($_FILES['file']['error'] > 0) {
       switch ($_FILES['file']['error']) {
-         //错误码不为0，即文件上传过程中出现了错误
+//错误码不为0，即文件上传过程中出现了错误
         case '1':
           echo '文件过大';
           break;
@@ -182,67 +183,120 @@ class Admin
           echo "上传出错<br/>";
       }
     } else {
-
-      $MAX_FILE_SIZE = 100000;
+      $MAX_FILE_SIZE = 200000;
       if ($_FILES['file']['size'] > $MAX_FILE_SIZE) {
         exit("文件超出指定大小");
-
       }
-
-      $allowSuffix = array(
-        'jpg',
-        'gif',
-      );
-
+      $allowSuffix = array('jpg', 'gif', 'jpeg', 'png');
       $myImg = explode('.', $_FILES['file']['name']);
-
       $myImgSuffix = array_pop($myImg);
-
       if (!in_array($myImgSuffix, $allowSuffix)) {
         exit("文件后缀名不符");
       }
-
-      $allowMime = array(
-        "image/jpg",
-        "image/jpeg",
-        "image/pjpeg",
-        "image/gif",
-      );
-
+      $allowMime = array("image/jpg", "image/jpeg", "image/pjpeg", "image/gif", "image/png");
       if (!in_array($_FILES['file']['type'], $allowMime)) {
         exit('文件格式不正确，请检查');
       }
-
-      $path = "public/upload/images/";
+      $path = "public/images/goods/";
       $name = date('Y') . date('m') . date("d") . date('H') . date('i') . date('s') . rand(0, 9) . '.' . $myImgSuffix;
-
+      $barcode = 'HW' . date('Y') . date('m') . date("d") . date('H') . date('i') . date('s') . rand(0, 9);
       if (is_uploaded_file($_FILES['file']['tmp_name'])) {
-
         if (move_uploaded_file($_FILES['file']['tmp_name'], $path . $name)) {
-          // echo "上传成功";
+// echo "上传成功";
+          return [
+            'picurl' => $this->addr . '/' . $path . $name,
+            'barcode' => $barcode
+          ];
         } else {
           echo '上传失败';
         }
-
       } else {
         echo '不是上传文件';
       }
-
     }
-    $bodyParams = $request->getParsedBody()['param'];
-    // $queryParams = $request->getQueryParams();
-    $resp = $this->respJson(json_decode($bodyParams, true));
-    return $this->response->withJson($resp);
   }
 
   /**
-   * Note: 测试post
+   * Note: 新增商品
    */
-  public function testPost($request, $response)
+  public function addGoods($request, $response)
   {
-    $bodyParams = $request->getParsedBody();
+    $this->logger->addInfo('新增商品');
+    $barcode_pic = $this->upload($request, $response);
+    $bodyParams = json_decode($request->getParsedBody()['param']);
+    if ($bodyParams->onsale_info == 0) {
+      $cut_now = '';
+      $mail_free = '';
+      $cut_nows = '';
+      $mail_frees = '';
+      $onsale_infoarr = [];
+    } else if ($bodyParams->onsale_info == 1) {
+      $cut_now = ',cut_now';
+      $mail_free = '';
+      $cut_nows = ',:cut_now';
+      $mail_frees = '';
+      $onsale_infoarr = [':cut_now' => $bodyParams->onsale_infoVal];
+    } else if ($bodyParams->onsale_info == 2) {
+      $cut_now = '';
+      $mail_free = ',mail_free';
+      $cut_nows = '';
+      $mail_frees = ',:mail_free';
+      $onsale_infoarr = [':mail_free' => $bodyParams->onsale_infoVal];
+    } else if ($bodyParams->onsale_info == 3) {
+      $cut_now = ',cut_now';
+      $mail_free = ',mail_free';
+      $cut_nows = ',:cut_now';
+      $mail_frees = ',:mail_free';
+      $onsale_infoarr = [':cut_now' => $bodyParams->onsale_infoVal, ':mail_free' => $bodyParams->onsale_infoVal];
+    }
+    $sql = "INSERT INTO goods (type_id, category_type, goods_name,goods_price,goods_color,goods_discount,onsale_info,isnew,picurl,sale_type,barcode $cut_now $mail_free) 
+VALUES (:type_id, :category_type, :goods_name, :goods_price, :goods_color, :goods_discount, :onsale_info, :isnew, :picurl, :sale_type, :barcode $cut_nows $mail_frees)";
+    $sqlArr = [
+      ':type_id' => $bodyParams->type_id,
+      ':category_type' => $bodyParams->category_type,
+      ':goods_name' => $bodyParams->goods_name,
+      ':goods_price' => $bodyParams->goods_price,
+      ':goods_color' => $bodyParams->goods_color,
+      ':goods_discount' => $bodyParams->goods_discount,
+      ':onsale_info' => $bodyParams->onsale_info,
+      ':isnew' => $bodyParams->isnew,
+      ':picurl' => $barcode_pic['picurl'],
+      ':barcode' => $barcode_pic['barcode'],
+      ':sale_type' => $bodyParams->sale_type
+    ];
+    $insertArr = array_merge($sqlArr, $onsale_infoarr);
+    $sth = $this->db->prepare($sql);
+    $sth->execute($insertArr);
+    $code = $sth->errorCode();
+    if ($code == 00000) {
+      $res = ['msg' => 'successfully!', 'code' => 200];
+    } else {
+      $res = ['msg' => 'failed', 'code' => 201];
+    }
+    $resp = $this->respJson($res);
+    return $this->response->withJson($resp);
+  }
+  /**
+   * Note: 查询商品列表
+   */
+  public function getGoods($request, $response)
+  {
+    $this->logger->addInfo('查询商品列表');
     $queryParams = $request->getQueryParams();
-    $resp = $this->respJson($bodyParams);
+    $offsets = $queryParams['offsets'];
+    $pages = ($queryParams['pages'] - 1) * $offsets;
+    if (isset($queryParams['barcode'])) {
+      $sql = "SELECT * FROM goods WHERE barcode=:barcode ORDER BY id DESC LIMIT $pages, $offsets";
+      $sth = $this->db->prepare($sql);
+      $queryArr = [':barcode' => $queryParams['barcode']];
+      $sth->execute($queryArr);
+    } else {
+      $sql = "SELECT * FROM goods ORDER BY id DESC LIMIT $pages, $offsets";
+      $sth = $this->db->prepare($sql);
+      $sth->execute();
+    }
+    $result = $sth->fetchAll();
+    $resp = $this->respJson($result);
     return $this->response->withJson($resp);
   }
 }

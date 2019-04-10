@@ -13,3 +13,5 @@ $app->delete('/delProduct', 'Admin:delProduct');
 
 // 正式请求
 $app->get('/goodsConfig', 'Admin:goodsConfig');
+$app->post('/addGoods', 'Admin:addGoods');
+$app->get('/getGoods', 'Admin:getGoods');
