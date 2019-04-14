@@ -198,8 +198,9 @@ class Admin
         exit('文件格式不正确，请检查');
       }
       $path = "public/images/goods/";
-      $name = date('Y') . date('m') . date("d") . date('H') . date('i') . date('s') . rand(0, 9) . '.' . $myImgSuffix;
-      $barcode = 'HW' . date('Y') . date('m') . date("d") . date('H') . date('i') . date('s') . rand(0, 9);
+      $random = date('Y') . date('m') . date("d") . date('H') . date('i') . date('s') . rand(0, 9);
+      $name = $random . '.' . $myImgSuffix;
+      $barcode = 'HW' . $random;
       if (is_uploaded_file($_FILES['file']['tmp_name'])) {
         if (move_uploaded_file($_FILES['file']['tmp_name'], $path . $name)) {
 // echo "上传成功";
@@ -276,6 +277,7 @@ VALUES (:type_id, :category_type, :goods_name, :goods_price, :goods_color, :good
     $resp = $this->respJson($res);
     return $this->response->withJson($resp);
   }
+
   /**
    * Note: 查询商品列表
    */
@@ -297,6 +299,37 @@ VALUES (:type_id, :category_type, :goods_name, :goods_price, :goods_color, :good
     }
     $result = $sth->fetchAll();
     $resp = $this->respJson($result);
+    return $this->response->withJson($resp);
+  }
+
+  /**
+   * Note: 商品修改
+   */
+  public function editGoods($request, $response)
+  {
+
+  }
+
+  /**
+   * Note: 删除商品
+   */
+  public function delGoods($request, $response)
+  {
+    $this->logger->addInfo('删除商品');
+    $goodsId = $request->getQueryParams()['id'];
+    $barcode = $request->getQueryParams()['barcode'];
+    $sql = "DELETE FROM goods WHERE id=:id";
+    $sqlArr = [':id' => $goodsId];
+    $sth = $this->db->prepare($sql);
+    $sth->execute($sqlArr);
+    $code = $sth->errorCode();
+    if ($code == 00000) {
+      $res = ['msg' => 'successfully!', 'code' => 200];
+    }
+    $img = substr($barcode, 2) . '.jpg';
+    $path = 'public/images/goods/';
+    unlink($path . $img); // 删除图片
+    $resp = $this->respJson($res);
     return $this->response->withJson($resp);
   }
 }
