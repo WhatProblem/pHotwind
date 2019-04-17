@@ -307,7 +307,49 @@ VALUES (:type_id, :category_type, :goods_name, :goods_price, :goods_color, :good
    */
   public function editGoods($request, $response)
   {
-
+    $this->logger->addInfo('修改商品');
+    $bodyParams = $request->getParsedBody();
+    if ($bodyParams['onsale_info'] == 0) {
+      $cut_now = '';
+      $mail_free = '';
+      $onsale_infoarr = [];
+    } else if ($bodyParams['onsale_info'] == 1) {
+      $cut_now = ',cut_now=:cut_now';
+      $mail_free = '';
+      $onsale_infoarr = [':cut_now' => $bodyParams['onsale_infoVal']];
+    } else if ($bodyParams['onsale_info'] == 2) {
+      $cut_now = '';
+      $mail_free = ',mail_free=:mail_free';
+      $onsale_infoarr = [':mail_free' => $bodyParam['onsale_infoVal']];
+    } else if ($bodyParams['onsale_info'] == 3) {
+      $cut_now = ',cut_now=:cut_now';
+      $mail_free = ',mail_free=:mail_free';
+      $onsale_infoarr = [':cut_now' => $bodyParams['onsale_infoVal'], ':mail_free' => $bodyParams['onsale_infoVal']];
+    }
+    $sql = "UPDATE goods SET type_id=:type_id, category_type=:category_type, goods_name=:goods_name,goods_price=:goods_price,goods_color=:goods_color,goods_discount=:goods_discount,onsale_info=:onsale_info,isnew=:isnew,sale_type=:sale_type $cut_now $mail_free WHERE id = :id";
+    $sqlArr = [
+      ':type_id' => $bodyParams['type_id'],
+      ':category_type' => $bodyParams['category_type'],
+      ':goods_name' => $bodyParams['goods_name'],
+      ':goods_price' => $bodyParams['goods_price'],
+      ':goods_color' => $bodyParams['goods_color'],
+      ':goods_discount' => $bodyParams['goods_discount'],
+      ':onsale_info' => $bodyParams['onsale_info'],
+      ':isnew' => $bodyParams['isnew'],
+      ':sale_type' => $bodyParams['sale_type'],
+      ':id' => $bodyParams['id'],
+    ];
+    $updateArr = array_merge($sqlArr, $onsale_infoarr);
+    $sth = $this->db->prepare($sql);
+    $sth->execute($updateArr);
+    $code = $sth->errorCode();
+    if ($code == 00000) {
+      $res = ['msg' => 'successfully!', 'code' => 200];
+    } else {
+      $res = ['msg' => 'failed', 'code' => 201];
+    }
+    $resp = $this->respJson($res);
+    return $this->response->withJson($resp);
   }
 
   /**
